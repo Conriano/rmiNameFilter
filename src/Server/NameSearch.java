@@ -19,19 +19,27 @@ public class NameSearch implements INameSearch{
 		String names = "";
 		String result = "";
 		
+		boolean[] foundNames = new boolean[lastnames.length];
+		
 		try {
 			br = new BufferedReader(new FileReader(file));
 			
 			while ((names = br.readLine()) != null) {
 				String[] nameArray = names.split(" ");
-				for(String prename : lastnames) {
+				for(int i = 0; i < lastnames.length; i++){
 					
-					if(nameArray[1].equals(prename)) {
+					if(nameArray[1].equals(lastnames[i])) {
 						result += nameArray[0] + " " + nameArray[1] + "\n";
+						foundNames[i] = true;
 					}
 				}
-				
 			} 
+			
+		for(int i = 0; i < foundNames.length; i++) {
+			if(!foundNames[i]) {
+				result += "Did not found prename for " + lastnames[i] + "\n";
+			}
+		}
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
