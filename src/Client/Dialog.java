@@ -79,6 +79,10 @@ public class Dialog {
 	
 	private void sendRequest() {
 		String names = Client.sendRequest(data.getIp(), data.getNames());
+		if(names.isEmpty()) {
+			System.out.println("Could not find any name\n");
+			return;
+		}
 		System.out.println("Found following names: \n" + names + "\n");
 	}
 	

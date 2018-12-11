@@ -12,6 +12,9 @@ public class NameSearch implements INameSearch{
 
 	@Override
 	public String getNames(String[] lastnames) {
+		if(lastnames[0].isEmpty()) {
+			return "";
+		}
 		
 		File file = new File("./src/Server/names.txt"); 
 		  
