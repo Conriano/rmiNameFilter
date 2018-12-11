@@ -14,7 +14,6 @@ public static void main(String[] args) throws RemoteException, MalformedURLExcep
 	INameSearch server = new NameSearch();
 	INameSearch stub = (INameSearch) UnicastRemoteObject.exportObject((INameSearch) server, 0);
 	
-	
 	Registry registry = LocateRegistry.createRegistry(1099);
 	registry.rebind("NameSearch", stub);
 	  

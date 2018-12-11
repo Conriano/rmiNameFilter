@@ -11,7 +11,7 @@ import Interface.INameSearch;
 public class NameSearch implements INameSearch{
 
 	@Override
-	public String getNames(String[] prenames) {
+	public String getNames(String[] lastnames) {
 		
 		File file = new File("./src/Server/names.txt"); 
 		  
@@ -24,7 +24,7 @@ public class NameSearch implements INameSearch{
 			
 			while ((names = br.readLine()) != null) {
 				String[] nameArray = names.split(" ");
-				for(String prename : prenames) {
+				for(String prename : lastnames) {
 					
 					if(nameArray[1].equals(prename)) {
 						result += nameArray[0] + " " + nameArray[1] + "\n";
